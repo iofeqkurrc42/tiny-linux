@@ -6,7 +6,7 @@
 megs:32
 
 display_library: x, options="gui_debug"
-#filename of ROM images
+#filename of ROM imag:es
 romimage: file="/usr/share/bochs/BIOS-bochs-legacy"
 vgaromimage: file="/usr/share/bochs/VGABIOS-lgpl-latest"
 #what disk images will be used
