@@ -9,9 +9,9 @@ SYSSEG=0x1000
 .globl _start_setup
 
 _start_setup:
-    movw %cs, %ax
-    movw %ax, %ds
-    movw %ax, %es
+    movw %cs,%ax
+    movw %ax,%ds
+    movw %ax,%es
 
     movw $setup_msg,%ax
     movw %ax,%bp
@@ -82,7 +82,7 @@ is_disk1:
     /* prepare for protection mode */
     cli
 
-    movw $0x0000, %ax
+    movw $0x0000,%ax
     cld
 
 do_move:
