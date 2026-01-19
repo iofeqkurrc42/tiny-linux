@@ -3,9 +3,9 @@ LD := ld -m elf_x86_64
 
 LDFLAG := -Ttext 0x0 -s --oformat binary
 
-image : linux.img
+image : ../linux.img
 
-linux.img : tools/build bootsect setup kernel/system
+../linux.img : tools/build bootsect setup kernel/system
 	./tools/build bootsect setup kernel/system > $@
 
 tools/build : tools/build.c
@@ -32,6 +32,6 @@ clean:
 	rm -f bootsect
 	rm -f setup
 	rm -f tools/build
-	rm -f linux.img
 	cd kernel; make clean; cd ..
-	rm -rf bochsout.txt bx_enh_dbg.ini
+	rm -rf ../bochsout.txt ../bx_enh_dbg.ini
+	rm -f ../linux.img
