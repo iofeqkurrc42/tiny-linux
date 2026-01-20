@@ -102,7 +102,7 @@ end_move:
     movw $0xb800,%ax
     movw %ax,%gs
     movb $0xf,%ah
-    movb $0x41,%al
+    movb $'X',%al
     movl $0x100,%edi
     movw %ax,%gs:(%di)
 
@@ -117,6 +117,39 @@ end_move:
     movb $0xDF,%al
     outb %al,$0x60
     call empty_8042
+
+    /* enable interrupts */
+    movb $0x11,%al
+    outb %al,$0x20
+    .word 0x00eb,0x00eb
+    outb %al,$0xA0
+    .word 0x00eb,0x00eb
+    movb $0x20,%al
+    outb %al,$0x21
+    .word 0x00eb,0x00eb
+    movb $0x28,%al
+    outb %al,$0xA1
+    .word 0x00eb,0x00eb
+    movb $0x04,%al
+    outb %al,$0x21
+    .word 0x00eb,0x00eb
+    movb $0x02,%al
+    outb %al,$0xA1
+
+    .word 0x00eb,0x00eb
+    movb $0x01,%al
+    outb %al,$0x21
+    .word 0x00eb,0x00eb
+    outb %al,$0xA1
+    .word 0x00eb,0x00eb
+
+    /* enable clock interrupts */
+    /*movb $0xff,%al*/
+    movb $0xfe,%al
+    outb %al,$0x21
+    /*.word 0x00eb,0x00eb*/
+    movb $0xff,%al
+    outb %al,$0xA1
 
     movl %cr0,%eax
     orb $1,%al
