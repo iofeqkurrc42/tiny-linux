@@ -10,6 +10,7 @@ startup_32:
     movl $0x18,%eax
     movw %ax,%gs
     call setup_idt
+    call setup_gdt
     call set_clock_idt
     int $0x80
     sti
@@ -40,6 +41,12 @@ rp_sidt:
     jne rp_sidt
     lidt idt_descr
     ret
+
+
+setup_gdt:
+    lgdt gdt_descr
+    ret
+
 
 ignore_idt:
     pushl %eax
@@ -89,6 +96,13 @@ idt_descr:
     .word 256*8-1
     .long idt
 
+.align 4
+.word 0
+gdt_descr:
+    .word 256*8-1
+    .long gdt
+
+.align 8
 idt:
     .fill 256,8,0
 
