@@ -13,8 +13,8 @@ startup_32:
     lss stack_start,%esp
     call setup_idt
     call setup_gdt
-    call set_clock_idt
-    sti
+    #call set_clock_idt
+    #sti
 
     movl $0x18,%eax
     movw %ax,%gs
@@ -29,7 +29,7 @@ startup_32:
     incl %eax
     movl %eax,0x000000
     cmpl %eax,0x100000
-    jne 1b
+    je 1b
 
     jmp after_page_tables
 
