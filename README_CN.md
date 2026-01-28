@@ -2,8 +2,14 @@
 
 ### 需要
 - Ubuntu 24.04 
-- gcc
+- GCC 13.3.0
 - Bochs x86 Emulator 2.7
+
+### 运行
+**exclude chapter1**
+```sh
+./run.sh <chapter folder> <run/clean>
+```
 
 ### 引用
 

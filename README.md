@@ -4,8 +4,14 @@
 
 ### Requirements
 - Ubuntu 24.04 
-- gcc
+- GCC 13.3.0
 - Bochs x86 Emulator 2.7
+
+### Run
+**exclude chapter1**
+```sh
+./run.sh <chapter folder> <run/clean>
+```
 
 ### Reference
 
