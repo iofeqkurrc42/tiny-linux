@@ -21,5 +21,5 @@ chr_drv/chr_drv.a: chr_drv/*.c
 
 clean:
 	rm *.o
-	rm system
+	rm -f system
 	cd chr_drv; make clean;cd ..

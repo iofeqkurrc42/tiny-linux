@@ -42,6 +42,7 @@ _start_setup:
   movw %ax,(8)
   movw %bx,(10)
   movw %cx,(12)
+  movw $0x5019,(14)
 
   movw $0x0000,%ax
   movw %ax,%ds
@@ -67,6 +68,7 @@ _start_setup:
   movw $0x1500,%ax
   movb $0x81,%dl
   int $0x13
+  jc no_disk1
   cmpb $3,%ah
   je is_disk1
 

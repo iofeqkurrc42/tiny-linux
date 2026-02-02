@@ -15,5 +15,5 @@ chr_drv.a: $(vOBJS)
 	sync
 
 clean:
-	rm *.o
-	rm chr_drv.a
+	rm -f *.o
+	rm -f chr_drv.a
